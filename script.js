@@ -68,6 +68,7 @@ function getComputerChoice () {
 }
 
 let playerAnswer = prompt("Please select between rock, paper, or scissor.")
+console.log(`user input: ${playerAnswer}`)
 const computerAnswer  = getComputerChoice();
-console.log(computerSelection)
+console.log(`computer input ${computerAnswer}`)
 console.log(playRound(playerAnswer,computerAnswer))
