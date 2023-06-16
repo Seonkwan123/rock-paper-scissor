@@ -7,10 +7,12 @@ function playRound (playerSelection, computerSelection) {
 
 }
 
-
+let randomNum = Math.ceil(Math.random() * 3)
+console.log(randomNum)
 // Create a function called getComputerChoice 
 function getComputerChoice () {
     let randomNum = Math.ceil(Math.random() * 3)
+    console.log(randomNum)
 }
 
 // Randomly generate whole numbers from 1-3. Set each value to either
