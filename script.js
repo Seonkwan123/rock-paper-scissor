@@ -7,18 +7,29 @@ function playRound (playerSelection, computerSelection) {
 
 }
 
-let randomNum = Math.ceil(Math.random() * 3)
-console.log(randomNum)
 // Create a function called getComputerChoice 
 function getComputerChoice () {
-    let randomNum = Math.ceil(Math.random() * 3)
-    console.log(randomNum)
-}
-
 // Randomly generate whole numbers from 1-3. Set each value to either
 // Rock Paper or scissor
-
+    let randomNum = Math.ceil(Math.random() * 3);
+    let computerAnswer;
+    switch (randomNum) {
+        case 1:
+            computerAnswer = 'rock';
+            break;
+        case 2:
+            computerAnswer = 'paper';
+            break;
+        case 3: 
+            computerAnswer = 'scissor';
+            break;
+    }
 // return that value, which will be stored as a variable. This variable 
 // will be one of the two paramenters for playRound Function
+    return computerAnswer;
+}
+
+const playerSelection = prompt("Please select between rock, paper, or scissor.")
+const computerSelection  = getComputerChoice();
 
 
