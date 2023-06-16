@@ -1,8 +1,10 @@
 // Write a function called playRound with two 
 // parameters (playerSelection,computerSelection)
 function playRound (playerSelection, computerSelection) {
-// Create function computerSelection()
-
+playerSelection.toLowerCase();
+if (playerSelection == 'rock' || playerSelection == 'paper' || playerSelection == 'scissor') {
+    alert ('incorrect input! Please provide a correct input');
+}
 // create a switch statement to compare the results to each scenario
 
 }
@@ -30,6 +32,8 @@ function getComputerChoice () {
 }
 
 const playerSelection = prompt("Please select between rock, paper, or scissor.")
+console.log(playerSelection)
 const computerSelection  = getComputerChoice();
-
+console.log(computerSelection)
+console.log (playRound(playerSelection,computerSelection))
 
