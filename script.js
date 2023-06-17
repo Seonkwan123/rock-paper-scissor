@@ -1,13 +1,19 @@
 // Write a function called playRound with two 
 // parameters (playerSelection,computerSelection)
 function game (numOfRounds) { 
-    for (let i = 0; i < numOfRounds; i++) {
+    let computerTally = 0;
+    let personTally = 0;
+    let tieTally = 0;
+    for (let i = 0; I < numOfRounds; i++) {
         let playerAnswer = prompt("Please select between rock, paper, or scissor.")
         let computerAnswer  = getComputerChoice();
-        playRound(platerAnswer,computerAnswer)
-        let computerTally = 0;
-        let personTally = 0;
+        let result = playRound(platerAnswer,computerAnswer)
+        if (result === 'win') personTally++
+        if (result === 'lose') computerTally++
     }
+    alert (`you won ${personTally}
+            computer won ${computerTally}
+            you tied ${tieTally}`)
 }
 
     function playRound (playerSelection, computerSelection) {
@@ -15,45 +21,59 @@ function game (numOfRounds) {
         if (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissor') {
         alert ('incorrect input! Please provide a correct input');
         }
+        let win = 0;
+        let lose = 0;
+        let tie = 0;
     // Create if statement for rock, paper, and scissor. This way, if statement can be broken down into three parts.
         if (playerSelection == 'rock') {
             switch (computerSelection) {
                 case 'rock':
                 alert ('tied!')
+                tie++
                 break;
                 case 'paper':
                 alert ('you fuckiong lose! You suck.')
+                lose++
                 break;
                 case 'scissor':
                 alert('You actually won!')
+                win++
                 break;
             }
         } else if (playerSelection == 'paper') {
             switch (computerSelection) {
                 case 'rock':
                 alert('You actually won!')
+                win++
                 break;
                 case 'paper':
                 alert('tied!')
+                tie++
                 break;
                 case 'scissor':
                 alert ('you fuckiong lose! You suck.')
+                lose++
                 break;
             }
         } else if (playerSelection == 'scissor') {
             switch (computerSelection) {
                 case 'rock':
                 alert('you fuckiong lose! You suck.')
+                lose++
                 break;
                 case 'paper':
                 alert('You actually won!')
+                win++
                 break;
                 case 'scissor':
                 alert('tied!')
+                tie++
                 break;
             }
         }
-    }
+        if (win ===1) return 'win'
+        else if (lose === 1) return 'lose'
+        }
 
 // Create a function called getComputerChoice 
 function getComputerChoice () {
