@@ -4,12 +4,13 @@ function game (numOfRounds) {
     let computerTally = 0;
     let personTally = 0;
     let tieTally = 0;
-    for (let i = 0; I < numOfRounds; i++) {
+    for (let i = 0; i < numOfRounds; i++) {
         let playerAnswer = prompt("Please select between rock, paper, or scissor.")
         let computerAnswer  = getComputerChoice();
-        let result = playRound(platerAnswer,computerAnswer)
+        let result = playRound(playerAnswer,computerAnswer)
         if (result === 'win') personTally++
         if (result === 'lose') computerTally++
+        if (result === 'tie') tieTally++
     }
     alert (`you won ${personTally}
             computer won ${computerTally}
@@ -73,6 +74,7 @@ function game (numOfRounds) {
         }
         if (win ===1) return 'win'
         else if (lose === 1) return 'lose'
+        else if (tie === 1) return 'tie'
         }
 
 // Create a function called getComputerChoice 
