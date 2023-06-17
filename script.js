@@ -1,6 +1,16 @@
 // Write a function called playRound with two 
 // parameters (playerSelection,computerSelection)
-function playRound (playerSelection, computerSelection) {
+function game (numOfRounds) { 
+    for (let i = 0; i < numOfRounds; i++) {
+        let playerAnswer = prompt("Please select between rock, paper, or scissor.")
+        let computerAnswer  = getComputerChoice();
+        playRound(platerAnswer,computerAnswer)
+        let computerTally = 0;
+        let personTally = 0;
+    }
+}
+
+    function playRound (playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
         if (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissor') {
         alert ('incorrect input! Please provide a correct input');
@@ -43,7 +53,7 @@ function playRound (playerSelection, computerSelection) {
                 break;
             }
         }
-}
+    }
 
 // Create a function called getComputerChoice 
 function getComputerChoice () {
@@ -67,8 +77,4 @@ function getComputerChoice () {
     return computerAnswer;
 }
 
-let playerAnswer = prompt("Please select between rock, paper, or scissor.")
-console.log(`user input: ${playerAnswer}`)
-const computerAnswer  = getComputerChoice();
-console.log(`computer input ${computerAnswer}`)
-console.log(playRound(playerAnswer,computerAnswer))
+game(5);
