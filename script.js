@@ -6,22 +6,23 @@ function game (numOfRounds) {
     let tieTally = 0;
     for (let i = 0; i < numOfRounds; i++) {
         let playerAnswer = prompt("Please select between rock, paper, or scissor.")
+        playerAnswer = playerAnswer.toLowerCase();
+            while (playerAnswer !== 'rock' && playerAnswer !== 'paper' && playerAnswer !== 'scissor') {
+                playerAnswer = prompt ('incorrect input! Please provide a correct input');
+                }
         let computerAnswer  = getComputerChoice();
         let result = playRound(playerAnswer,computerAnswer)
         if (result === 'win') personTally++
         if (result === 'lose') computerTally++
         if (result === 'tie') tieTally++
     }
-    alert (`you won ${personTally}
-            computer won ${computerTally}
-            you tied ${tieTally}`)
+    alert (`   you won ${personTally}
+        computer won ${computerTally}
+        you tied ${tieTally}`)
 }
 
     function playRound (playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
-        if (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissor') {
-        alert ('incorrect input! Please provide a correct input');
-        }
+    
         let win = 0;
         let lose = 0;
         let tie = 0;
