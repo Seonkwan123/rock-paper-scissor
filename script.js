@@ -1,3 +1,31 @@
+// Select body using querySelector to append div and buttons
+const body = document.querySelector('body')
+// Create a div that will contaim all buttons
+const div = document.createElement('div');
+// Create each button element
+const button1 = document.createElement('button')
+const button2= document.createElement('button')
+const button3 = document.createElement('button')
+// Append both div and its child
+div.appendChild(button1);
+div.appendChild(button2);
+div.appendChild(button3);
+body.appendChild(div);
+// Add three texts
+button1.innerText = 'Rock'
+button2.innerText = 'Paper'
+button3.innerText = 'Scissor'
+
+// select all three buttons
+const buttons = document.querySelectorAll('button');
+// for of to loop through all buttons to add class
+for (let i = 0; i < buttons.length; i++) {
+    buttons[i].classList.add(`button${i+1}`)
+}
+
+
+
+
 // Wite a function called 'game' that will play number of rounds specified.
 function game (numOfRounds) { 
     let computerTally = 0;
