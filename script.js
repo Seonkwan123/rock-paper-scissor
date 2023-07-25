@@ -2,6 +2,13 @@
 const rock = document.querySelector('.button1')
 const paper = document.querySelector('.button2')
 const scissor = document.querySelector('.button3')
+// Select score keeper div using querySelector
+const score = document.querySelector('score-keeper')
+// eventListener for all buttons
+// eventListener will have callback function that plays round when clicked, as well as
+// update the points
+rock.addEventListener('click', e => console.log(e));
+
 // Wite a function called 'game' that will play number of rounds specified.
 function game (numOfRounds) { 
     let computerTally = 0;
@@ -14,7 +21,7 @@ function game (numOfRounds) {
         if (result === 'lose') computerTally++
         if (result === 'tie') tieTally++
     }
-}
+
 // Create a callback function to play one round.
     function playRound (playerSelection, computerSelection) {
     // Create three variables, all initially set at zero, to be used to check whether computer or user has won. 
