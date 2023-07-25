@@ -6,15 +6,6 @@ function game (numOfRounds) {
     let computerTally = 0;
     let personTally = 0;
     let tieTally = 0;
-    // Create for loop to play number of rounds 
-    for (let i = 0; i < numOfRounds; i++) {
-        // Use prompt to get user's input
-        let playerAnswer = prompt("Please select between rock, paper, or scissor.")
-        playerAnswer = playerAnswer.toLowerCase();
-        // Use while loop to make check if the input is valid or not. If not valid, create prompt until correct input is given.
-            while (playerAnswer !== 'rock' && playerAnswer !== 'paper' && playerAnswer !== 'scissor') {
-                playerAnswer = prompt ('incorrect input! Please provide a correct input');
-                }
         // Invoke function to get result of computer
         let computerAnswer  = getComputerChoice();
         let result = playRound(playerAnswer,computerAnswer)
