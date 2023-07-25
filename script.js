@@ -1,3 +1,4 @@
+// Select buttons using querySelector
 const rock = document.querySelector('.button1')
 const paper = document.querySelector('.button2')
 const scissor = document.querySelector('.button3')
@@ -13,9 +14,6 @@ function game (numOfRounds) {
         if (result === 'lose') computerTally++
         if (result === 'tie') tieTally++
     }
-    alert (`   you won ${personTally}
-        computer won ${computerTally}
-        you tied ${tieTally}`)
 }
 // Create a callback function to play one round.
     function playRound (playerSelection, computerSelection) {
@@ -27,15 +25,12 @@ function game (numOfRounds) {
         if (playerSelection == 'rock') {
             switch (computerSelection) {
                 case 'rock':
-                alert ('tied!')
                 tie++
                 break;
                 case 'paper':
-                alert ('you fuckiong lose! You suck.')
                 lose++
                 break;
                 case 'scissor':
-                alert('You actually won!')
                 win++
                 break;
             }
