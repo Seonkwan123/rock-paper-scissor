@@ -1,10 +1,19 @@
-/* body {
+html, body {
+    height: 100%;
+}
+
+body {
     font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 0;
-} */
+    gap: 100px;
+}
+
+div {
+text-align: center;
+height: auto;
+}
 
 .buttons {
     display: flex;

@@ -1,4 +1,6 @@
-
+const rock = document.querySelector('.button1')
+const paper = document.querySelector('.button2')
+const scissor = document.querySelector('.button3')
 // Wite a function called 'game' that will play number of rounds specified.
 function game (numOfRounds) { 
     let computerTally = 0;
