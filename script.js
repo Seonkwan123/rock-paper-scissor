@@ -1,35 +1,51 @@
 let winTally =0;
 let loseTally = 0;
 let tieTally = 0;
-let userInput;
+// let userInput;
 // Select buttons using querySelector
-const rock = document.querySelector('.rock')
-const paper = document.querySelector('.paper')
-const scissor = document.querySelector('.scissor')
-// Select score keeper div using querySelector
-const win = document.querySelector('.win')
-const lose = document.querySelector('.lose')
-const tie = document.querySelector('.tie')
-// input HTML Text into score keeper
-win.textContent = `win: ${winTally}`
-lose.textContent = `lose: ${loseTally}`
-tie.textContent = `win: ${tieTally}`
+const buttons = document.querySelectorAll('.buttons')
+// const rock = document.querySelector('.rock')
+// const paper = document.querySelector('.paper')
+// const scissor = document.querySelector('.scissor')
+
+// Select score keeper child divs
+const scoreKeeper = document.querySelectorAll('.score-keeper > div')
+
+// input HTML Text into score keeper child divs
+scoreKeeper.forEach(score => {
+    score.textContent = `${score.getAttribute('class')}: ${winTally}`
+})
+
 // eventListener will have callback function that plays round when clicked, as well as
 // update the points
 rock.addEventListener('click', function () {
-userInput = rock.getAttribute('class');
-console.log(userInput);
+let userInput = rock.getAttribute('class');
+game(userInput)
 });
 
-// Wite a function called 'game' that will play number of rounds specified.
-function game (numOfRounds) { 
-let result = playRound;
+paper.addEventListener('click', function () {
+    let userInput = rock.getAttribute('class');
+    game(userInput)
+    });
+
+    scissor.addEventListener('click', function () {
+       let userInput = rock.getAttribute('class');
+        game(userInput)
+        });
+
+// Wite a function called 'game' that will take userInput and compare with computer selection
+function game (userSelection) { 
+let computerAnswer = getComputerChoice()
+let result = playRound(userSelection, computerAnswer);
 if (result === 'win') {
     winTally ++
     win.textContent = `win: ${winTally}`
 } else if (result === 'lose') {
     loseTally ++
     lose.textContent = `lose: ${loseTally}`
+} else if (result === 'tie') {
+    tieTally ++
+    tie.textContent = `tie: ${tieTally}`
 }
     }
 
