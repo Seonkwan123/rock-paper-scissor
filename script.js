@@ -1,25 +1,36 @@
+let winTally =0;
+let loseTally = 0;
+let tieTally = 0;
+let userInput;
 // Select buttons using querySelector
-const rock = document.querySelector('.button1')
-const paper = document.querySelector('.button2')
-const scissor = document.querySelector('.button3')
+const rock = document.querySelector('.rock')
+const paper = document.querySelector('.paper')
+const scissor = document.querySelector('.scissor')
 // Select score keeper div using querySelector
-const score = document.querySelector('score-keeper')
-// eventListener for all buttons
+const win = document.querySelector('.win')
+const lose = document.querySelector('.lose')
+const tie = document.querySelector('.tie')
+// input HTML Text into score keeper
+win.textContent = `win: ${winTally}`
+lose.textContent = `lose: ${loseTally}`
+tie.textContent = `win: ${tieTally}`
 // eventListener will have callback function that plays round when clicked, as well as
 // update the points
-rock.addEventListener('click', e => console.log(e));
+rock.addEventListener('click', function () {
+userInput = rock.getAttribute('class');
+console.log(userInput);
+});
 
 // Wite a function called 'game' that will play number of rounds specified.
 function game (numOfRounds) { 
-    let computerTally = 0;
-    let personTally = 0;
-    let tieTally = 0;
-        // Invoke function to get result of computer
-        let computerAnswer  = getComputerChoice();
-        let result = playRound(playerAnswer,computerAnswer)
-        if (result === 'win') personTally++
-        if (result === 'lose') computerTally++
-        if (result === 'tie') tieTally++
+let result = playRound;
+if (result === 'win') {
+    winTally ++
+    win.textContent = `win: ${winTally}`
+} else if (result === 'lose') {
+    loseTally ++
+    lose.textContent = `lose: ${loseTally}`
+}
     }
 
 // Create a callback function to play one round.
@@ -44,30 +55,24 @@ function game (numOfRounds) {
         } else if (playerSelection == 'paper') {
             switch (computerSelection) {
                 case 'rock':
-                alert('You actually won!')
                 win++
                 break;
                 case 'paper':
-                alert('tied!')
                 tie++
                 break;
                 case 'scissor':
-                alert ('you fuckiong lose! You suck.')
                 lose++
                 break;
             }
         } else if (playerSelection == 'scissor') {
             switch (computerSelection) {
                 case 'rock':
-                alert('you fuckiong lose! You suck.')
                 lose++
                 break;
                 case 'paper':
-                alert('You actually won!')
                 win++
                 break;
                 case 'scissor':
-                alert('tied!')
                 tie++
                 break;
             }
