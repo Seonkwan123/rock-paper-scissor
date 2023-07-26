@@ -18,20 +18,26 @@ scoreKeeper.forEach(score => {
 
 // eventListener will have callback function that plays round when clicked, as well as
 // update the points
-rock.addEventListener('click', function () {
-let userInput = rock.getAttribute('class');
-game(userInput)
-});
-
-paper.addEventListener('click', function () {
-    let userInput = rock.getAttribute('class');
+buttons.forEach(button => {
+    button.addEventListener('click', function() {
+    let userInput = button.getAttribute('class')
     game(userInput)
-    });
+})
+})
+// rock.addEventListener('click', function () {
+// let userInput = rock.getAttribute('class');
+// game(userInput)
+// });
 
-    scissor.addEventListener('click', function () {
-       let userInput = rock.getAttribute('class');
-        game(userInput)
-        });
+// paper.addEventListener('click', function () {
+//     let userInput = rock.getAttribute('class');
+//     game(userInput)
+//     });
+
+//     scissor.addEventListener('click', function () {
+//        let userInput = rock.getAttribute('class');
+//         game(userInput)
+//         });
 
 // Wite a function called 'game' that will take userInput and compare with computer selection
 function game (userSelection) { 
