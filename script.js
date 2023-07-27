@@ -3,7 +3,8 @@ let loseTally = 0;
 let tieTally = 0;
 // let userInput;
 // Select buttons using querySelector
-const buttons = document.querySelectorAll('buttons')
+const buttons = document.querySelectorAll('button')
+console.log(buttons)
 // const rock = document.querySelector('.rock')
 // const paper = document.querySelector('.paper')
 // const scissor = document.querySelector('.scissor')
@@ -22,23 +23,10 @@ scoreKeeper.forEach(score => {
 buttons.forEach(button => {
     button.addEventListener('click', function() {
     let userInput = button.getAttribute('class')
+    console.log(userInput)
     game(userInput)
 })
 })
-// rock.addEventListener('click', function () {
-// let userInput = rock.getAttribute('class');
-// game(userInput)
-// });
-
-//  paper.addEventListener('click', function () {
-//  let userInput = rock.getAttribute('class');
-//  game(userInput)
-//  });
-
-// scissor.addEventListener('click', function () {
-// let userInput = rock.getAttribute('class');
-// game(userInput)
-// });
 
 // Wite a function called 'game' that will take userInput and compare with computer selection
 function game (userSelection) { 
