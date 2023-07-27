@@ -3,13 +3,14 @@ let loseTally = 0;
 let tieTally = 0;
 // let userInput;
 // Select buttons using querySelector
-const buttons = document.querySelectorAll('.buttons')
+const buttons = document.querySelectorAll('buttons')
 // const rock = document.querySelector('.rock')
 // const paper = document.querySelector('.paper')
 // const scissor = document.querySelector('.scissor')
 
 // Select score keeper child divs
 const scoreKeeper = document.querySelectorAll('.score-keeper > div')
+console.log(scoreKeeper[0])
 
 // input HTML Text into score keeper child divs
 scoreKeeper.forEach(score => {
@@ -29,15 +30,15 @@ buttons.forEach(button => {
 // game(userInput)
 // });
 
-// paper.addEventListener('click', function () {
-//     let userInput = rock.getAttribute('class');
-//     game(userInput)
-//     });
+//  paper.addEventListener('click', function () {
+//  let userInput = rock.getAttribute('class');
+//  game(userInput)
+//  });
 
-//     scissor.addEventListener('click', function () {
-//        let userInput = rock.getAttribute('class');
-//         game(userInput)
-//         });
+// scissor.addEventListener('click', function () {
+// let userInput = rock.getAttribute('class');
+// game(userInput)
+// });
 
 // Wite a function called 'game' that will take userInput and compare with computer selection
 function game (userSelection) { 
@@ -45,13 +46,13 @@ let computerAnswer = getComputerChoice()
 let result = playRound(userSelection, computerAnswer);
 if (result === 'win') {
     winTally ++
-    win.textContent = `win: ${winTally}`
+    scoreKeeper[0].textContent = `win: ${winTally}`
 } else if (result === 'lose') {
     loseTally ++
-    lose.textContent = `lose: ${loseTally}`
+    scoreKeeper[1].textContent = `lose: ${loseTally}`
 } else if (result === 'tie') {
     tieTally ++
-    tie.textContent = `tie: ${tieTally}`
+    scoreKeeper[2].textContent = `tie: ${tieTally}`
 }
     }
 
@@ -126,5 +127,3 @@ function getComputerChoice () {
     // will be one of the two paramenters for playRound Function
     return computerAnswer;
 }
-
-game(5);
