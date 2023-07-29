@@ -1,3 +1,8 @@
+
+const startBtn = document.querySelector('.startBtn')
+startBtn.addEventListener(click, startGame);
+
+Function startGame () {
 let winTally =0;
 let loseTally = 0;
 let tieTally = 0;
@@ -11,7 +16,6 @@ console.log(buttons)
 
 // Select score keeper child divs
 const scoreKeeper = document.querySelectorAll('.score-keeper > div')
-console.log(scoreKeeper[0])
 
 // input HTML Text into score keeper child divs
 scoreKeeper.forEach(score => {
@@ -21,14 +25,18 @@ scoreKeeper.forEach(score => {
 // eventListener will have callback function that plays round when clicked, as well as
 // update the points
 buttons.forEach(button => {
-    button.addEventListener('click', function() {
+    button.addEventListener('click', function(e) {
+        console.log(e);
     let userInput = button.getAttribute('class')
     console.log(userInput)
     game(userInput)
 })
 })
 
-// Wite a function called 'game' that will take userInput and compare with computer selection
+// Add visual for what was selected for both the user and the computer
+
+
+// Wite a function called 'game' that will take userInput and compare with computer selection. This is a callback function when any buttons are pressed.
 function game (userSelection) { 
 let computerAnswer = getComputerChoice()
 let result = playRound(userSelection, computerAnswer);
@@ -114,4 +122,5 @@ function getComputerChoice () {
     // return that value, which will be stored as a variable. This variable 
     // will be one of the two paramenters for playRound Function
     return computerAnswer;
+}
 }
