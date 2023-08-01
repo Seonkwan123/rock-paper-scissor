@@ -1,8 +1,15 @@
 
 const startBtn = document.querySelector('.startBtn')
-startBtn.addEventListener(click, startGame);
+startBtn.addEventListener('click', startGame);
 
-Function startGame () {
+// Select all elements inside 'body' and loop through to give transparancy of 0 
+const body = document.querySelector('body');
+const bodyChildNodes = body.childNodes;
+console.log(bodyChildNodes);
+
+
+
+function startGame () {
 let winTally =0;
 let loseTally = 0;
 let tieTally = 0;
