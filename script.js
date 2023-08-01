@@ -3,10 +3,15 @@ const startBtn = document.querySelector('.startBtn')
 startBtn.addEventListener('click', startGame);
 
 // Select all elements inside 'body' and loop through to give transparancy of 0 
-const body = document.querySelector('body');
-const bodyChildNodes = body.childNodes;
-console.log(bodyChildNodes);
+const bodyChildrenElements = document.querySelectorAll('body > *');
+console.log(typeof bodyChildrenElements[0].getAttribute('class'))
 
+bodyChildrenElements.forEach(element => {
+    if (element.getAttribute('class') !== 'startContainer') {
+        console.log(element.getAttribute('class'))
+        element.style.display = 'none';
+    }
+});
 
 
 function startGame () {
