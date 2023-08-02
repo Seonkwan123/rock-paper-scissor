@@ -20,8 +20,12 @@ img  {
     max-height: 200px;
 }
 
+.startContainer.active{
+    display: none;
+}
+
 .buttons {
-    display: done;
+    display: none;
 }
 
 .buttons.active {
