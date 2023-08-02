@@ -24,6 +24,14 @@ img  {
     display: none;
 }
 
+.title (
+    display: none;
+)
+
+.title.active (
+    display: none;
+)
+
 .buttons {
     display: none;
 }

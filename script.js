@@ -6,13 +6,6 @@ startBtn.addEventListener('click', startGame);
 const bodyChildrenElements = document.querySelectorAll('body > *');
 console.log(typeof bodyChildrenElements[0].getAttribute('class'))
 
-bodyChildrenElements.forEach(element => {
-    if (element.getAttribute('class') !== 'startContainer') {
-        console.log(element.getAttribute('class'))
-        element.style.display = 'none';
-    }
-});
-
 
 function startGame () {
 let winTally =0;
