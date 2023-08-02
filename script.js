@@ -18,7 +18,12 @@ function startGame () {
 let winTally =0;
 let loseTally = 0;
 let tieTally = 0;
-// let userInput;
+// Add class to unhide the elements that were hidden when start button is shown. 
+bodyChildrenElements.forEach(element => {
+    element.classList.add('active')
+})
+// Hide start button
+startBtn.style.display = 'none';
 // Select buttons using querySelector
 const buttons = document.querySelectorAll('button')
 console.log(buttons)

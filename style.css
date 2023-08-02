@@ -15,17 +15,26 @@ text-align: center;
 height: auto;
 }
 
-.buttons {
-    display: flex;
-    justify-content: space-around;
-}
-
 img  {
     max-width: 200px;
     max-height: 200px;
 }
 
+.buttons {
+    display: done;
+}
+
+.buttons.active {
+    display: flex;
+    justify-content: space-around;
+}
+
 .score-keeper {
+    display: none;
+    justify-content: space-around;
+}
+
+.score-keeper.active {
     display: flex;
     justify-content: space-around;
 }
