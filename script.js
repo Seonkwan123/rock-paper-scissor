@@ -6,14 +6,17 @@ startBtn.addEventListener('click', startGame);
 const bodyChildrenElements = document.querySelectorAll('body > *');
 
 
-function startGame () {
+
 let winTally =0;
 let loseTally = 0;
 let tieTally = 0;
 // Add class to unhide the elements that were hidden when start button is shown. 
-bodyChildrenElements.forEach(element => {
+// Add setTimeout to where it takes half a second to load the page. 
+function startGame () {
+    setTimeout (() => bodyChildrenElements.forEach(element => {
     element.classList.add('active')
-})
+    }),500)
+}
 // Hide start button
 // Select buttons using querySelector
 const buttons = document.querySelectorAll('button')
@@ -129,5 +132,4 @@ function getComputerChoice () {
     // return that value, which will be stored as a variable. This variable 
     // will be one of the two paramenters for playRound Function
     return computerAnswer;
-}
 }
