@@ -24,13 +24,13 @@ img  {
     display: none;
 }
 
-.title (
+.title {
     display: none;
-)
+}
 
-.title.active (
-    display: none;
-)
+.title.active {
+    display: block;
+}
 
 .buttons {
     display: none;
@@ -43,7 +43,6 @@ img  {
 
 .score-keeper {
     display: none;
-    justify-content: space-around;
 }
 
 .score-keeper.active {

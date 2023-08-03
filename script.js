@@ -4,7 +4,6 @@ startBtn.addEventListener('click', startGame);
 
 // Select all elements inside 'body' and loop through to give transparancy of 0 
 const bodyChildrenElements = document.querySelectorAll('body > *');
-console.log(typeof bodyChildrenElements[0].getAttribute('class'))
 
 
 function startGame () {
@@ -16,10 +15,8 @@ bodyChildrenElements.forEach(element => {
     element.classList.add('active')
 })
 // Hide start button
-startBtn.style.display = 'none';
 // Select buttons using querySelector
 const buttons = document.querySelectorAll('button')
-console.log(buttons)
 // const rock = document.querySelector('.rock')
 // const paper = document.querySelector('.paper')
 // const scissor = document.querySelector('.scissor')
