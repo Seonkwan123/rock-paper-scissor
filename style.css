@@ -1,5 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 html, body {
     height: 100%;
+    background-color: ;
 }
 
 body {
@@ -8,6 +14,7 @@ body {
     flex-direction: column;
     justify-content: center;
     gap: 100px;
+    background-color: #175e59;
 }
 
 div {
