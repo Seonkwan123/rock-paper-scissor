@@ -4,6 +4,23 @@ startBtn.addEventListener('click', startGame);
 
 // Select all elements inside 'body' and loop through to give transparancy of 0 
 const bodyChildrenElements = document.querySelectorAll('body > *');
+// Select intro text and print them out individually
+let introText = 'Welcome to Rock-Paper-Scissor game!'
+// Create a function for pinting letter one by one
+
+let i = 0;
+printLetters()
+function printLetters() {
+ if (i < introText.length) {
+    console.log(i)
+    console.log(introText.length)
+    document.querySelector('.intro').innerHTML += introText[i]
+    console.log(document.querySelector('.intro').innerHTML)
+    console.log(i);
+    i++
+    setTimeout(printLetters, 50)
+    }
+}
 
 
 
