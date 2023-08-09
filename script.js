@@ -18,7 +18,7 @@ function printLetters() {
     console.log(document.querySelector('.intro').innerHTML)
     console.log(i);
     i++
-    setTimeout(printLetters, 50)
+    setTimeout(printLetters, 70)
     }
 }
 
@@ -32,7 +32,7 @@ let tieTally = 0;
 function startGame () {
     setTimeout (() => bodyChildrenElements.forEach(element => {
     element.classList.add('active')
-    }),500)
+    }),50)
 }
 // Hide start button
 // Select buttons using querySelector
