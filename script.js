@@ -30,9 +30,9 @@ const bodyChildrenElements = document.querySelectorAll('body > *');
 
 // Add class to unhide the elements that were hidden when start button is pressed. 
 function startGame () {
-    bodyChildrenElements.forEach(element => {
+    setTimeout(() =>bodyChildrenElements.forEach(element => {
     element.classList.add('active')
-    })
+    }), 100)
 }
 // Select buttons using querySelector
 const buttons = document.querySelectorAll('button')
@@ -55,7 +55,8 @@ buttons.forEach(button => {
 })
 
 // Add visual for what was selected for both the user and the computer
-
+const selection = document.querySelectorAll('.selection > div')
+selection[0].textContent = "Please Select"
 
 // Wite a function called 'game' that will take userInput and compare with computer selection. This is a callback function when any buttons are pressed.
 function game (userSelection) { 
@@ -76,10 +77,10 @@ if (winTally >= 5) {
     return
     }
 
-    if (loseTally >= 5) {
-        alert('you have lost!')
-        return
-        }
+if (loseTally >= 5) {
+    alert('you have lost!')
+    return
+    }
 }
 
 // Create a callback function to play one round.
@@ -88,6 +89,7 @@ if (winTally >= 5) {
         let win = 0;
         let lose = 0;
         let tie = 0;
+        selection[0].textContent = `you have chosen ${playerSelection}!`
     // Create if statement for all scenario. Add 1 to variables created to check the results.
         if (playerSelection == 'rock') {
             switch (computerSelection) {
