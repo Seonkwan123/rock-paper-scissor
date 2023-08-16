@@ -40,7 +40,7 @@ const buttons = document.querySelectorAll('button')
 // Select score keeper child divs
 const scoreKeeper = document.querySelectorAll('.score-keeper > div')
 
-// input HTML Text into score keeper child divs to update the score every round
+// input HTML Text into score keeper child divs
 scoreKeeper.forEach(score => {
     score.textContent = `${score.getAttribute('class')}: ${winTally}`
 })
@@ -48,10 +48,8 @@ scoreKeeper.forEach(score => {
 // eventListener will have callback function that plays round when clicked, as well as
 // update the points
 buttons.forEach(button => {
-    button.addEventListener('click', function(e) {
-        console.log(e);
+    button.addEventListener('click', () => {
     let userInput = button.getAttribute('class')
-    console.log(userInput)
     game(userInput)
 })
 })
@@ -73,7 +71,16 @@ if (result === 'win') {
     tieTally ++
     scoreKeeper[2].textContent = `tie: ${tieTally}`
 }
+if (winTally >= 5) {
+    alert('you have won!')
+    return
     }
+
+    if (loseTally >= 5) {
+        alert('you have lost!')
+        return
+        }
+}
 
 // Create a callback function to play one round.
     function playRound (playerSelection, computerSelection) {
