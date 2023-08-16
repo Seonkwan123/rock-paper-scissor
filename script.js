@@ -27,24 +27,19 @@ setTimeout (printLetters, 2000, introTextSecond, intro2)
 let winTally =0;
 let loseTally = 0;
 let tieTally = 0;
-// Add class to unhide the elements that were hidden when start button is shown. 
-// Add setTimeout to where it takes half a second to load the page. 
+// Add class to unhide the elements that were hidden when start button is pressed. 
 function startGame () {
     bodyChildrenElements.forEach(element => {
     element.classList.add('active')
     })
 }
-// Hide start button
 // Select buttons using querySelector
 const buttons = document.querySelectorAll('button')
-// const rock = document.querySelector('.rock')
-// const paper = document.querySelector('.paper')
-// const scissor = document.querySelector('.scissor')
 
 // Select score keeper child divs
 const scoreKeeper = document.querySelectorAll('.score-keeper > div')
 
-// input HTML Text into score keeper child divs
+// input HTML Text into score keeper child divs to update the score every round
 scoreKeeper.forEach(score => {
     score.textContent = `${score.getAttribute('class')}: ${winTally}`
 })
