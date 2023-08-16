@@ -6,23 +6,23 @@ startBtn.addEventListener('click', startGame);
 const bodyChildrenElements = document.querySelectorAll('body > *');
 // Select intro text and print them out individually
 let introTextFirst = 'Welcome to Rock-Paper-Scissor game!'
-// Create a function for pinting letter one by one
-let introTextSecond = "Press 'start button' to start the game"
-let speed = 70;
+let introTextSecond = "Press 'Start Game' button to start the game"
+let speed = 40; // This speed is the speed that will print out the text one by one
+// initialize class name 
 const intro1 = document.querySelector('.intro1').getAttribute('class')
 const intro2 = document.querySelector('.intro2').getAttribute('class')
-
+// invoke printLetter first
 printLetters(introTextFirst, intro1)
 
-function printLetters(text,className, i=0) {
+function printLetters(text,className, i=0) { //This function takes two arguments. i is always initially set to zero only when it is first invoked.
     if (i < text.length) {
     document.querySelector('.'+className).textContent += text[i]
     i++
     setTimeout(printLetters, speed, text, className, i)
     }
 }
-
-setTimeout (printLetters, 3000, introTextSecond, intro2)
+// This setTimeout is for the second intro below the start button.
+setTimeout (printLetters, 2000, introTextSecond, intro2)
 
 let winTally =0;
 let loseTally = 0;
@@ -30,9 +30,9 @@ let tieTally = 0;
 // Add class to unhide the elements that were hidden when start button is shown. 
 // Add setTimeout to where it takes half a second to load the page. 
 function startGame () {
-    setTimeout (() => bodyChildrenElements.forEach(element => {
+    bodyChildrenElements.forEach(element => {
     element.classList.add('active')
-    }),50)
+    })
 }
 // Hide start button
 // Select buttons using querySelector
