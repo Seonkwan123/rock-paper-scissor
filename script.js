@@ -1,9 +1,3 @@
-
-const startBtn = document.querySelector('.startBtn')
-startBtn.addEventListener('click', startGame);
-
-// Select all elements inside 'body' and loop through to give transparancy of 0 
-const bodyChildrenElements = document.querySelectorAll('body > *');
 // Select intro text and print them out individually
 let introTextFirst = 'Welcome to Rock-Paper-Scissor game!'
 let introTextSecond = "Press 'Start Game' button to start the game"
@@ -24,9 +18,16 @@ function printLetters(text,className, i=0) { //This function takes two arguments
 // This setTimeout is for the second intro below the start button.
 setTimeout (printLetters, 2000, introTextSecond, intro2)
 
+// Set initial tallies
 let winTally =0;
 let loseTally = 0;
 let tieTally = 0;
+// Select start button and add eventListener to start the game when clicked.
+const startBtn = document.querySelector('.startBtn')
+startBtn.addEventListener('click', startGame);
+// Select all elements inside 'body' and loop through to give transparancy of 0 
+const bodyChildrenElements = document.querySelectorAll('body > *');
+
 // Add class to unhide the elements that were hidden when start button is pressed. 
 function startGame () {
     bodyChildrenElements.forEach(element => {
