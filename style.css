@@ -56,6 +56,15 @@ img  {
     justify-content: space-around;
 }
 
+.selection {
+    display: none;
+}
+
+.selection.active {
+    display: flex;
+    justify-content: space-around;
+}
+
 .startBtn {
     border-radius: 8px;
     border: 2px solid black;

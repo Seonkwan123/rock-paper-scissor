@@ -35,7 +35,7 @@ function startGame () {
     }), 100)
 }
 // Select buttons using querySelector
-const buttons = document.querySelectorAll('button')
+const buttons = document.querySelectorAll('.buttons > button')
 
 // Select score keeper child divs
 const scoreKeeper = document.querySelectorAll('.score-keeper > div')
@@ -56,12 +56,13 @@ buttons.forEach(button => {
 
 // Add visual for what was selected for both the user and the computer
 const selection = document.querySelectorAll('.selection > div')
-selection[0].textContent = "Please Select"
 
 // Wite a function called 'game' that will take userInput and compare with computer selection. This is a callback function when any buttons are pressed.
 function game (userSelection) { 
 let computerAnswer = getComputerChoice()
 let result = playRound(userSelection, computerAnswer);
+selection[0].textContent = `Player Selected: ${userSelection}` // This will display player selection
+selection[1].textContent = `Computer Selected: ${computerAnswer}` // This will display computer selection
 if (result === 'win') {
     winTally ++
     scoreKeeper[0].textContent = `win: ${winTally}`
@@ -89,7 +90,6 @@ if (loseTally >= 5) {
         let win = 0;
         let lose = 0;
         let tie = 0;
-        selection[0].textContent = `you have chosen ${playerSelection}!`
     // Create if statement for all scenario. Add 1 to variables created to check the results.
         if (playerSelection == 'rock') {
             switch (computerSelection) {
