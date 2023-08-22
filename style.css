@@ -21,11 +21,6 @@ text-align: center;
 height: auto;
 }
 
-img  {
-    max-width: 200px;
-    max-height: 200px;
-}
-
 .startContainer.active{
     display: none;
 }
@@ -74,10 +69,21 @@ img  {
     font-style: italic;
     font-weight: bold;
     margin: 8px auto;
+    transition: all 0.1s;
 }
 
 .rock,.paper,.scissor {
-    background-size: cover;
-    background-position: center;
-    padding: 100px;
+ width: 200px;
+ height: 200px;
+ border: 5px solid white;
+ transition: all 0.2s;
+ font-size: 100px;
+ background-color: #14120c;
 }
+
+.scissor:hover,
+.rock:hover,
+.paper:hover,
+.startBtn:hover {
+    border-color: ;
+   }
