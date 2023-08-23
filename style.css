@@ -53,7 +53,7 @@ height: auto;
 
 .buttons.active {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .score-keeper {
@@ -86,9 +86,15 @@ height: auto;
     transition: all 0.1s;
 }
 
+#buttons {
+    border: 3px solid wheat;
+    border-radius: 5px;
+    padding: 30px;
+}
+
 .rock,.paper,.scissor {
- width: 100px;
- height: 100px;
+ max-width: 100px;
+ max-height: 100px;
  border: 5px solid white;
  transition: all 0.2s;
  font-size: auto;
