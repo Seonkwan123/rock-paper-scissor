@@ -13,7 +13,21 @@ body {
     flex-direction: column;
     justify-content: center;
     gap: 100px;
+    position: relative;
+    isolation: isolate;
+    color:aliceblue
+}
+
+body::after {
+    content: '';
+    position: absolute;
     background-color: #23867f;
+    background-image: url(./images/background.png);
+    background-size: cover;
+    background-position: center;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.85;
 }
 
 div {
