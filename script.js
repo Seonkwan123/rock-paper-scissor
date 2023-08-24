@@ -35,8 +35,8 @@ function startGame () {
     }), 100)
 }
 // Select buttons using querySelector
-const buttons = document.querySelectorAll('.buttons > #buttons > button')
-
+const buttons = document.querySelectorAll('.player-buttons > button')
+console.log(buttons)
 // Select score keeper child divs
 const scoreKeeper = document.querySelectorAll('.score-keeper > div')
 

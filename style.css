@@ -39,6 +39,16 @@ height: auto;
     display: none;
 }
 
+.startBtn {
+    border-radius: 8px;
+    border: 2px solid black;
+    padding: 8px 10px;
+    font-style: italic;
+    font-weight: bold;
+    margin: 8px auto;
+    transition: all 0.1s;
+}
+
 .title {
     display: none;
 }
@@ -47,15 +57,50 @@ height: auto;
     display: block;
 }
 
-.buttons {
+.buttons-container {
     display: none;
 }
 
-.buttons.active {
+.buttons-container.active {
     display: flex;
     justify-content: space-around;
-    gap: 25px;
+    flex-wrap: wrap;
 }
+
+.player-buttons-container,
+.computer-buttons-container {
+    border: 3px solid wheat;
+    border-radius: 5px;
+    padding: 30px;
+    flex: 1;
+    height: 200px;
+    margin: 50px;
+}
+
+.player-buttons,
+.computer-buttons {
+    display: flex;
+    flex: 1;
+    gap: 5px;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+.rock,.paper,.scissor {
+ min-width: 100px;
+ min-height: 100px;
+ border: 5px solid white;
+ transition: all 0.2s;
+ font-size: 50px;
+ background-color: #14120c;
+}
+
+.scissor:hover,
+.rock:hover,
+.paper:hover,
+.startBtn:hover {
+    border-color: gold;
+   }
 
 .score-keeper {
     display: none;
@@ -77,37 +122,3 @@ height: auto;
     justify-content: space-around;
 }
 
-.startBtn {
-    border-radius: 8px;
-    border: 2px solid black;
-    padding: 8px 10px;
-    font-style: italic;
-    font-weight: bold;
-    margin: 8px auto;
-    transition: all 0.1s;
-}
-
-#button-container {
-    border: 3px solid wheat;
-    border-radius: 5px;
-    padding: 30px;
-    flex: 1;
-    height: 200px;
-    margin: 50px;
-}
-
-.rock,.paper,.scissor {
- min-width: 100px;
- min-height: 100px;
- border: 5px solid white;
- transition: all 0.2s;
- font-size: auto;
- background-color: #14120c;
-}
-
-.scissor:hover,
-.rock:hover,
-.paper:hover,
-.startBtn:hover {
-    border-color: gold;
-   }
