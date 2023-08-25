@@ -12,7 +12,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 100px;
+    gap: 50px;
     position: relative;
     isolation: isolate;
     color:aliceblue
@@ -63,9 +63,10 @@ height: auto;
 
 .score-keeper.active {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     font-weight: bold;
     font-size: 30px;
+    color: goldenrod;
 }
 
 .buttons-container {
@@ -92,6 +93,12 @@ height: auto;
     flex: auto;
 }
 
+.player-buttons-container > div,
+.computer-buttons-container > div {
+font-size: large;
+font-weight: bold;
+}
+
 .player-buttons,
 .computer-buttons {
     display: flex;
@@ -110,9 +117,9 @@ height: auto;
  flex: auto
 }
 
-.scissor:hover,
-.rock:hover,
-.paper:hover,
+.scissor#player-button:hover,
+.rock#player-button:hover,
+.paper#player-button:hover,
 .startBtn:hover {
     border-color: gold;
    }
