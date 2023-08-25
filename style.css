@@ -57,6 +57,17 @@ height: auto;
     display: block;
 }
 
+.score-keeper {
+    display: none;
+}
+
+.score-keeper.active {
+    display: flex;
+    justify-content: space-around;
+    font-weight: bold;
+    font-size: 30px;
+}
+
 .buttons-container {
     display: none;
 }
@@ -105,17 +116,6 @@ height: auto;
 .startBtn:hover {
     border-color: gold;
    }
-
-.score-keeper {
-    display: none;
-}
-
-.score-keeper.active {
-    display: flex;
-    justify-content: space-around;
-    font-weight: bold;
-    font-size: 30px
-}
 
 .selection {
     display: none;
