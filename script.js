@@ -3,6 +3,7 @@ let introTextFirst = 'Welcome to Rock-Paper-Scissor game!'
 let introTextSecond = "Press 'Start Game' button to start the game"
 let speed = 40; // This speed is the speed that will print out the text one by one
 // initialize class name 
+let computerAnswer;
 const intro1 = document.querySelector('.intro1').getAttribute('class')
 const intro2 = document.querySelector('.intro2').getAttribute('class')
 // invoke printLetter first
@@ -36,7 +37,7 @@ function startGame () {
 }
 // Select buttons using querySelector
 const buttons = document.querySelectorAll(' .player-buttons > button')
-console.log(buttons)
+const computerButtons = document.querySelectorAll(' .computer-buttons > button')
 // Select score keeper child divs
 const scoreKeeper = document.querySelectorAll('.score-keeper > div')
 
@@ -50,9 +51,14 @@ scoreKeeper.forEach(score => {
 buttons.forEach(button => {
     button.addEventListener('click', () => {
     let userInput = button.getAttribute('class')
+    clickButton(button)
     game(userInput)
+    if (computerAnswer == 'rock') clickButton(computerButtons[0])
+    if (computerAnswer == 'paper') clickButton(computerButtons[1])
+    if (computerAnswer == 'scissor') clickButton(computerButtons[2])
 })
 })
+
 
 // Add visual for what was selected for both the user and the computer
 const selection = document.querySelectorAll('.player-selection,.computer-selection')
@@ -60,9 +66,16 @@ const selection = document.querySelectorAll('.player-selection,.computer-selecti
 selection[0].textContent = `Player Selected:`
 selection[1].textContent = `Computer Selected:`
 
+// Write a function that will selected CSS style that should be applied when button is clicked 
+function clickButton (buttonclicked) {
+    buttonclicked.classList.add('selected')
+    setTimeout((buttonclickedReverse) => 
+    {buttonclickedReverse.classList.remove('selected')},1000, buttonclicked)
+}
+
 // Wite a function called 'game' that will take userInput and compare with computer selection. This is a callback function when any buttons are pressed.
 function game (userSelection) { 
-let computerAnswer = getComputerChoice()
+computerAnswer = getComputerChoice()
 let result = playRound(userSelection, computerAnswer);
 selection[0].textContent = `Player Selected: ${userSelection}` // This will display player selection
 selection[1].textContent = `Computer Selected: ${computerAnswer}` // This will display computer selection

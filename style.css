@@ -66,7 +66,6 @@ height: auto;
     justify-content: space-evenly;
     font-weight: bold;
     font-size: 30px;
-    color: goldenrod;
 }
 
 .buttons-container {
@@ -111,11 +110,22 @@ font-weight: bold;
  max-width: 100px;
  height: 100px;
  border: 5px solid white;
- transition: all 0.2s;
+ transition: hover 0.3s;
  font-size: 50px;
  background-color: #14120c;
  flex: auto
 }
+
+.rock.selected,.paper.selected,.scissor.selected {
+    max-width: 100px;
+    height: 100px;
+    border: 5px solid gold;
+    transition: transform 1.0s;
+    transform: scale(1.2);
+    font-size: 50px;
+    background-color: #14120c;
+    flex: auto
+   }
 
 .scissor#player-button:hover,
 .rock#player-button:hover,
