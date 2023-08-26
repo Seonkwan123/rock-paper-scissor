@@ -35,7 +35,7 @@ function startGame () {
     }), 100)
 }
 // Select buttons using querySelector
-const buttons = document.querySelectorAll('.player-buttons > button')
+const buttons = document.querySelectorAll(' .player-buttons > button')
 console.log(buttons)
 // Select score keeper child divs
 const scoreKeeper = document.querySelectorAll('.score-keeper > div')
@@ -55,7 +55,10 @@ buttons.forEach(button => {
 })
 
 // Add visual for what was selected for both the user and the computer
-const selection = document.querySelectorAll('.selection > div')
+const selection = document.querySelectorAll('.player-selection,.computer-selection')
+// Add initial statement
+selection[0].textContent = `Player Selected:`
+selection[1].textContent = `Computer Selected:`
 
 // Wite a function called 'game' that will take userInput and compare with computer selection. This is a callback function when any buttons are pressed.
 function game (userSelection) { 
