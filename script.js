@@ -6,6 +6,7 @@ let speed = 40; // This speed is the speed that will print out the text one by o
 let computerAnswer;
 const intro1 = document.querySelector('.intro1').getAttribute('class')
 const intro2 = document.querySelector('.intro2').getAttribute('class')
+const description = document.querySelector('.description')
 // invoke printLetter first
 printLetters(introTextFirst, intro1)
 
@@ -79,15 +80,18 @@ computerAnswer = getComputerChoice()
 let result = playRound(userSelection, computerAnswer);
 selection[0].textContent = `Player Selected: ${userSelection}` // This will display player selection
 selection[1].textContent = `Computer Selected: ${computerAnswer}` // This will display computer selection
-if (result === 'win') {
+if (result === 'win' && winTally < 5) {
     winTally ++
     scoreKeeper[0].textContent = `win: ${winTally}`
-} else if (result === 'lose') {
+    description.textContent = 'You win!'
+} else if (result === 'lose' && loseTally < 5) {
     loseTally ++
     scoreKeeper[1].textContent = `lose: ${loseTally}`
+    description.textContent = 'You lose :('
 } else if (result === 'tie') {
     tieTally ++
     scoreKeeper[2].textContent = `tie: ${tieTally}`
+    description.textContent = 'You tied'
 }
 if (winTally >= 5) {
     alert('you have won!')
