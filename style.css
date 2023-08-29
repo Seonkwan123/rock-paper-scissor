@@ -130,7 +130,8 @@ font-weight: bold;
 .scissor#player-button:hover,
 .rock#player-button:hover,
 .paper#player-button:hover,
-.startBtn:hover {
+.startBtn:hover,
+.restartBtn:hover {
     border-color: gold;
    }
 
@@ -143,3 +144,18 @@ font-weight: bold;
     justify-content: space-around;
 }
 
+.restartButton {
+    display: flex;
+    justify-content: center;
+}
+
+.restartBtn {
+    border-radius: 8px;
+    border: 2px solid black;
+    padding: 12px 14px;
+    font-style: italic;
+    font-weight: bold;
+    font-size: large;
+    margin: 12px auto;
+    transition: all 0.2s;
+}

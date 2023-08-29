@@ -7,6 +7,12 @@ let computerAnswer;
 const intro1 = document.querySelector('.intro1').getAttribute('class')
 const intro2 = document.querySelector('.intro2').getAttribute('class')
 const description = document.querySelector('.description')
+// Reset buttons
+const restartButton = document.querySelector('.restartButton')
+const restartBtn = document.createElement('button')
+restartBtn.classList.add('restartBtn')
+restartBtn.textContent = 'Restart'
+
 // invoke printLetter first
 printLetters(introTextFirst, intro1)
 
@@ -93,14 +99,14 @@ if (result === 'win' && winTally < 5) {
     scoreKeeper[2].textContent = `tie: ${tieTally}`
     description.textContent = 'You tied'
 }
-if (winTally >= 5) {
-    alert('you have won!')
-    return
-    }
-
-if (loseTally >= 5) {
-    alert('you have lost!')
-    return
+if (winTally >= 5 || loseTally >= 5) {
+    const allButtons = document.querySelectorAll('button')
+    allButtons.forEach(button => {
+        button.disabled = true;
+        button.style.pointerEvents = 'none'
+    })
+    restartButton.appendChild(restartBtn)
+    restartBtn.addEventListener('click', reset)
     }
 }
 
@@ -174,4 +180,8 @@ function getComputerChoice () {
     // return that value, which will be stored as a variable. This variable 
     // will be one of the two paramenters for playRound Function
     return computerAnswer;
+}
+
+function reset () {
+    window.location.reload(true);
 }
