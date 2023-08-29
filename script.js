@@ -7,6 +7,8 @@ let computerAnswer;
 const intro1 = document.querySelector('.intro1').getAttribute('class')
 const intro2 = document.querySelector('.intro2').getAttribute('class')
 const description = document.querySelector('.description')
+const allButtons = document.querySelectorAll('button')
+console.log(allButtons)
 // Reset buttons
 const restartButton = document.querySelector('.restartButton')
 const restartBtn = document.createElement('button')
@@ -60,6 +62,7 @@ buttons.forEach(button => {
     let userInput = button.getAttribute('class')
     clickButton(button)
     game(userInput)
+    buttonDelay (allButtons)
     if (computerAnswer == 'rock') clickButton(computerButtons[0])
     if (computerAnswer == 'paper') clickButton(computerButtons[1])
     if (computerAnswer == 'scissor') clickButton(computerButtons[2])
@@ -99,15 +102,24 @@ if (result === 'win' && winTally < 5) {
     scoreKeeper[2].textContent = `tie: ${tieTally}`
     description.textContent = 'You tied'
 }
-if (winTally >= 5 || loseTally >= 5) {
-    const allButtons = document.querySelectorAll('button')
+if (winTally >= 5) {
     allButtons.forEach(button => {
         button.disabled = true;
         button.style.pointerEvents = 'none'
     })
+    description.textContent = "Wow, you actually won. I'm very surprised"
     restartButton.appendChild(restartBtn)
     restartBtn.addEventListener('click', reset)
     }
+    if (loseTally >= 5) {
+        allButtons.forEach(button => {
+            button.disabled = true;
+            button.style.pointerEvents = 'none'
+        })
+        description.textContent = "You suck a$$. Go kill yourself"
+        restartButton.appendChild(restartBtn)
+        restartBtn.addEventListener('click', reset)
+        }
 }
 
 // Create a callback function to play one round.
@@ -184,4 +196,13 @@ function getComputerChoice () {
 
 function reset () {
     window.location.reload(true);
+}
+
+function buttonDelay (buttonNodeList) {
+    buttonNodeList.forEach (button => {
+        button.disabled = true;
+        setTimeout(() => {
+            button.disabled = false;
+        }, 1000)
+    })
 }
