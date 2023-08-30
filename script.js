@@ -1,8 +1,3 @@
-// Select intro text and print them out individually
-let introTextFirst = 'Welcome to Rock-Paper-Scissor game!'
-let introTextSecond = "Press 'Start Game' button to start the game"
-let speed = 40; // This speed is the speed that will print out the text one by one
-
 // Set initial tallies
 let winTally =0;
 let loseTally = 0;
@@ -13,6 +8,15 @@ let computerAnswer;
 // Set intro1 and intro2 to class name for intro1 & intro2
 const intro1 = document.querySelector('.intro1').getAttribute('class')
 const intro2 = document.querySelector('.intro2').getAttribute('class')
+// Select intro text and print them out individually
+let introTextFirst = 'Welcome to Rock-Paper-Scissor game!'
+let introTextSecond = "Press 'Start Game' button to start the game"
+let speed = 40; // This speed is the speed that will print out the text one by one
+
+// invoke printLetter first. This will print letter one by one.
+printLetters(introTextFirst, intro1)
+// This setTimeout is for the second intro below the start button.
+setTimeout (printLetters, 2000, introTextSecond, intro2)
 
 const description = document.querySelector('.description') 
 // select all buttons, except for restart button. Restart button is not a node not when all buttons are selected as it has not been appended yet.
@@ -31,22 +35,7 @@ restartBtn.textContent = 'Restart' // Add text to the restart button
 // Select player buttons and computer buttons separately using querySelector
 const playerButtons = document.querySelectorAll(' .player-buttons > button')
 const computerButtons = document.querySelectorAll(' .computer-buttons > button')
-// Select score keeper child divs
-const scoreKeeper = document.querySelectorAll('.score-keeper > div')
-
-// invoke printLetter first
-printLetters(introTextFirst, intro1)
-
-// This setTimeout is for the second intro below the start button.
-setTimeout (printLetters, 2000, introTextSecond, intro2)
-
-// input HTML Text into score keeper child divs
-scoreKeeper.forEach(score => {
-    score.textContent = `${score.getAttribute('class')}: ${winTally}`
-})
-
-// eventListener will have callback function that plays round when clicked, as well as
-// update the points
+// eventListener will have callback function that plays round when clicked, as well as update the points
 playerButtons.forEach(button => {
     button.addEventListener('click', () => {
     let userInput = button.getAttribute('class')
@@ -59,6 +48,11 @@ playerButtons.forEach(button => {
 })
 })
 
+const scoreKeeper = document.querySelectorAll('.score-keeper > div')
+// input HTML Text into score keeper child divs
+scoreKeeper.forEach(score => {
+    score.textContent = `${score.getAttribute('class')}: ${winTally}`
+})
 
 // Add visual for what was selected for both the user and the computer
 const selection = document.querySelectorAll('.player-selection,.computer-selection')
@@ -68,13 +62,14 @@ selection[1].textContent = `Computer Selected:`
 
 // Write a function that will selected CSS style that should be applied when button is clicked 
 function clickButton (buttonclicked) {
-    buttonclicked.classList.add('selected')
+    buttonclicked.classList.add('selected') //This will add class 'selected' to the button clicked, which will inherit all CSS trait associated with selected class
+    // This will remove the class selected after 1s for the button clicked.
     setTimeout((buttonclickedReverse) => 
     {buttonclickedReverse.classList.remove('selected')},1000, buttonclicked)
 }
 
-
-function printLetters(text,className, i=0) { //This function takes two arguments. i is always initially set to zero only when it is first invoked.
+// This function prints out letter one by one for the intro stage of the game
+function printLetters(text,className, i=0) { 
     if (i < text.length) {
     document.querySelector('.'+className).textContent += text[i]
     i++
@@ -88,11 +83,12 @@ function startGame () {
     element.classList.add('active')
     }), 100)
 }
-
+// This function resets the game.
 function reset () {
     window.location.reload(true);
 }
-
+// This function disables button for a second, which is the same time as the button exapnding, and then collapsing after thie being clicked.
+// This function is to avoid buttons being spammed.
 function buttonDelay (buttonNodeList) {
     buttonNodeList.forEach (button => {
         button.disabled = true;
@@ -124,12 +120,12 @@ function game (userSelection) {
     }
     if (winTally >= 5) {
         allButtons.forEach(button => {
-            button.disabled = true;
-            button.style.pointerEvents = 'none'
+            button.disabled = true; // This keeps buttons from being selectable by disabling it after winning 5 times.
+            button.style.pointerEvents = 'none' // This disables hovering affect.
         })
         description.textContent = "Wow, you actually won. I'm very surprised"
-        restartButton.appendChild(restartBtn)
-        restartBtn.addEventListener('click', reset)
+        restartButton.appendChild(restartBtn) // This appends the button to the restart div. This way, the disabled = true does not apply since it is executed before this button is appended.
+        restartBtn.addEventListener('click', reset) // Add eventListener to the reset button.
         }
         if (loseTally >= 5) {
             allButtons.forEach(button => {
