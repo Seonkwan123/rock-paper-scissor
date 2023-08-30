@@ -2,53 +2,43 @@
 let introTextFirst = 'Welcome to Rock-Paper-Scissor game!'
 let introTextSecond = "Press 'Start Game' button to start the game"
 let speed = 40; // This speed is the speed that will print out the text one by one
+
+// Set initial tallies
+let winTally =0;
+let loseTally = 0;
+let tieTally = 0;
+
 // initialize class name 
 let computerAnswer;
 const intro1 = document.querySelector('.intro1').getAttribute('class')
 const intro2 = document.querySelector('.intro2').getAttribute('class')
 const description = document.querySelector('.description')
 const allButtons = document.querySelectorAll('button')
-console.log(allButtons)
+
+// Select start button and add eventListener to start the game when clicked.
+const startBtn = document.querySelector('.startBtn')
+startBtn.addEventListener('click', startGame);
+
+// Select all elements inside 'body' and loop through to give transparancy of 0 
+const bodyChildrenElements = document.querySelectorAll('body > *');
+
 // Reset buttons
 const restartButton = document.querySelector('.restartButton')
 const restartBtn = document.createElement('button')
 restartBtn.classList.add('restartBtn')
 restartBtn.textContent = 'Restart'
 
-// invoke printLetter first
-printLetters(introTextFirst, intro1)
-
-function printLetters(text,className, i=0) { //This function takes two arguments. i is always initially set to zero only when it is first invoked.
-    if (i < text.length) {
-    document.querySelector('.'+className).textContent += text[i]
-    i++
-    setTimeout(printLetters, speed, text, className, i)
-    }
-}
-// This setTimeout is for the second intro below the start button.
-setTimeout (printLetters, 2000, introTextSecond, intro2)
-
-// Set initial tallies
-let winTally =0;
-let loseTally = 0;
-let tieTally = 0;
-// Select start button and add eventListener to start the game when clicked.
-const startBtn = document.querySelector('.startBtn')
-startBtn.addEventListener('click', startGame);
-// Select all elements inside 'body' and loop through to give transparancy of 0 
-const bodyChildrenElements = document.querySelectorAll('body > *');
-
-// Add class to unhide the elements that were hidden when start button is pressed. 
-function startGame () {
-    setTimeout(() =>bodyChildrenElements.forEach(element => {
-    element.classList.add('active')
-    }), 100)
-}
 // Select buttons using querySelector
 const buttons = document.querySelectorAll(' .player-buttons > button')
 const computerButtons = document.querySelectorAll(' .computer-buttons > button')
 // Select score keeper child divs
 const scoreKeeper = document.querySelectorAll('.score-keeper > div')
+
+// invoke printLetter first
+printLetters(introTextFirst, intro1)
+
+// This setTimeout is for the second intro below the start button.
+setTimeout (printLetters, 2000, introTextSecond, intro2)
 
 // input HTML Text into score keeper child divs
 scoreKeeper.forEach(score => {
@@ -194,6 +184,21 @@ function getComputerChoice () {
     return computerAnswer;
 }
 
+function printLetters(text,className, i=0) { //This function takes two arguments. i is always initially set to zero only when it is first invoked.
+    if (i < text.length) {
+    document.querySelector('.'+className).textContent += text[i]
+    i++
+    setTimeout(printLetters, speed, text, className, i)
+}
+}
+
+// Add class to unhide the elements that were hidden when start button is pressed. 
+function startGame () {
+    setTimeout(() =>bodyChildrenElements.forEach(element => {
+    element.classList.add('active')
+    }), 100)
+}
+
 function reset () {
     window.location.reload(true);
 }
@@ -202,7 +207,7 @@ function buttonDelay (buttonNodeList) {
     buttonNodeList.forEach (button => {
         button.disabled = true;
         setTimeout(() => {
-            button.disabled = false;
+        button.disabled = false;
         }, 1000)
     })
 }
