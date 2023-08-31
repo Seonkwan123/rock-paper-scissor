@@ -111,12 +111,13 @@ font-weight: bold;
  max-width: 100px;
  height: 100px;
  border: 5px solid white;
- transition: hover 0.3s;
+ transition: hover 0.3s; /* The hover affect has smooth 0.3s transition */
  font-size: 50px;
  background-color: #14120c;
  flex: auto
 }
 
+/* This is the properties being applied to for button that has been clicked. */
 .selected {
     max-width: 100px;
     height: 100px;
@@ -128,6 +129,7 @@ font-weight: bold;
     flex: auto
    }
 
+   /* This is to change the border color when hovering over. */
 .scissor#player-button:hover,
 .rock#player-button:hover,
 .paper#player-button:hover,
@@ -145,6 +147,7 @@ font-weight: bold;
     justify-content: space-around;
 }
 
+/* This is the div that has restart button as a child */
 .restartButton {
     display: flex;
     justify-content: center;
