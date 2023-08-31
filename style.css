@@ -35,7 +35,8 @@ text-align: center;
 height: auto;
 }
 
-.startContainer.active{
+/* This is to get rid of start container when start game button is pressed */
+.startContainer.active{ 
     display: none;
 }
 
@@ -46,7 +47,7 @@ height: auto;
     font-style: italic;
     font-weight: bold;
     margin: 8px auto;
-    transition: all 0.1s;
+    transition: all 0.1s; /* This helps to slow down the transition of the hover affect */
 }
 
 .title {
@@ -79,11 +80,12 @@ height: auto;
     gap: 40px;
 }
 
+/* Flex auto is there to keep the size of the box the way it was intended to be sized. If this is not done, the box will collapse as default flex is set to 1 (0 1 auto) */
 .player-buttons-container,
 .computer-buttons-container {
     border: 3px solid wheat;
     border-radius: 5px;
-    padding: 10px;
+    padding: 10px;  
     height: 250px;
     max-width: 400px;
     display: flex;
@@ -102,7 +104,6 @@ font-weight: bold;
 .computer-buttons {
     display: flex;
     gap: 15px;
-    flex-wrap: nowrap;
     justify-content: space-around;
 }
 
