@@ -13,20 +13,20 @@ body {
     flex-direction: column;
     justify-content: center;
     gap: 50px;
-    position: relative;
-    isolation: isolate;
+    position: relative; /* This is to have background picture absolute */
+    isolation: isolate; /* This is part of the background picture */
     color:aliceblue
 }
 
 body::after {
     content: '';
-    position: absolute;
+    position: absolute; 
     background-color: #23867f;
     background-image: url(./images/background.png);
-    background-size: cover;
+    background-size: cover; /* This is to cover the whole background with one image. If not, the image will repeat itself */
     background-position: center;
-    inset: 0;
-    z-index: -1;
+    inset: 0; /* This covers whole background with background image*/ 
+    z-index: -1; /* This puts the picture to the back */
     opacity: 0.85;
 }
 
