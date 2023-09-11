@@ -132,7 +132,7 @@ function game (userSelection) {
                 button.disabled = true;
                 button.style.pointerEvents = 'none'
             })
-            description.textContent = "You suck a$$. Go kill yourself"
+            description.textContent = "You lost. Better luck next time!"
             restartButton.appendChild(restartBtn)
             restartBtn.addEventListener('click', reset)
             }
